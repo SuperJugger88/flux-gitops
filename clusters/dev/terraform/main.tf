@@ -1,53 +1,62 @@
-# Namespace для Velero
 resource "kubernetes_namespace" "velero" {
   metadata {
     name = "velero"
   }
 }
 
-# Helm релиз Velero (использует предварительно созданный секрет)
+resource "kubectl_manifest" "velero_credentials" {
+  yaml_body = file("${path.module}/secret-enc.yaml")
+}
+
 resource "helm_release" "velero" {
   name       = "velero"
   repository = "https://vmware-tanzu.github.io/helm-charts"
   chart      = "velero"
-  version    = "5.0.2"
+  version    = "11.2.0"
   namespace  = kubernetes_namespace.velero.metadata[0].name
 
   set {
-    name  = "configuration.provider"
-    value = "aws"
-  }
-
-  set {
-    name  = "configuration.backupStorageLocation.name"
+    name  = "configuration.backupStorageLocations[0].name"
     value = "default"
   }
 
   set {
-    name  = "configuration.backupStorageLocation.bucket"
+    name  = "configuration.backupStorageLocations[0].provider"
+    value = "aws"
+  }
+
+  set {
+    name  = "configuration.backupStorageLocations[0].bucket"
     value = var.velero_bucket_name
   }
 
   set {
-    name  = "configuration.backupStorageLocation.config.region"
+    name  = "configuration.backupStorageLocations[0].config.region"
     value = "ru-central-1"
   }
 
   set {
-    name  = "configuration.backupStorageLocation.config.s3ForcePathStyle"
+    name  = "configuration.backupStorageLocations[0].config.s3ForcePathStyle"
     value = "true"
   }
 
   set {
-    name  = "configuration.backupStorageLocation.config.s3Url"
+    name  = "configuration.backupStorageLocations[0].config.s3Url"
     value = var.minio_endpoint
   }
 
+  # Настройки credentials
   set {
     name  = "credentials.existingSecret"
     value = "velero-credentials"
   }
 
+  set {
+    name  = "credentials.useSecret"
+    value = "true"
+  }
+
+  # Init containers для плагина AWS
   set {
     name  = "initContainers[0].name"
     value = "velero-plugin-for-aws"
@@ -68,5 +77,5 @@ resource "helm_release" "velero" {
     value = "plugins"
   }
 
-  depends_on = [kubernetes_namespace.velero]
+  depends_on = [kubectl_manifest.velero_sealed_credentials,kubernetes_namespace.velero]
 }
