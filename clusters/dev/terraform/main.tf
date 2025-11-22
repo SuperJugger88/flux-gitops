@@ -5,25 +5,7 @@ resource "kubernetes_namespace" "velero" {
   }
 }
 
-# Secret с учетными данными для MinIO - используем данные из существующего секрета minio
-resource "kubernetes_secret" "velero_credentials" {
-  metadata {
-    name      = "velero-credentials"
-    namespace = kubernetes_namespace.velero.metadata[0].name
-  }
-
-  data = {
-    "cloud" = <<-EOT
-      [default]
-      aws_access_key_id = ${base64decode(var.minio_root_user)}
-      aws_secret_access_key = ${base64decode(var.minio_root_password)}
-    EOT
-  }
-
-  depends_on = [kubernetes_namespace.velero]
-}
-
-# Helm релиз Velero
+# Helm релиз Velero (использует предварительно созданный секрет)
 resource "helm_release" "velero" {
   name       = "velero"
   repository = "https://vmware-tanzu.github.io/helm-charts"
@@ -86,5 +68,5 @@ resource "helm_release" "velero" {
     value = "plugins"
   }
 
-  depends_on = [kubernetes_secret.velero_credentials]
+  depends_on = [kubernetes_namespace.velero]
 }
