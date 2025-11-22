@@ -7,7 +7,7 @@ metadata:
 spec:
   interval: 10m
   approvePlan: auto
-  path: ./terraform
+  path: ./clusters/dev/terraform
   sourceRef:
     kind: GitRepository
     name: flux-system
