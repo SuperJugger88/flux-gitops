@@ -17,6 +17,7 @@ spec:
   timeout: 20m
   targetNamespace: minio
   values:
+    replicas: 2
     auth:
       existingSecret: minio
     defaultBuckets: "kubeflex"
