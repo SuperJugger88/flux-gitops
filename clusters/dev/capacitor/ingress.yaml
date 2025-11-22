@@ -12,7 +12,7 @@ spec:
   - host: capacitor.localhost
     http:
       paths:
-      - path: /fluxcd/console(/|$)(.*)
+      - path: /
         pathType: ImplementationSpecific
         backend:
           service:
