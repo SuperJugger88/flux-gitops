@@ -1,19 +1,9 @@
-resource "kubernetes_namespace" "velero" {
-  metadata {
-    name = "velero"
-  }
-}
-
-resource "kubectl_manifest" "velero_credentials" {
-  yaml_body = file("${path.module}/secret-enc.yaml")
-}
-
 resource "helm_release" "velero" {
   name       = "velero"
   repository = "https://vmware-tanzu.github.io/helm-charts"
   chart      = "velero"
   version    = "11.2.0"
-  namespace  = kubernetes_namespace.velero.metadata[0].name
+  namespace  = "velero"
 
   set {
     name  = "configuration.backupStorageLocations[0].name"
@@ -76,6 +66,4 @@ resource "helm_release" "velero" {
     name  = "initContainers[0].volumeMounts[0].name"
     value = "plugins"
   }
-
-  depends_on = [kubectl_manifest.velero_sealed_credentials,kubernetes_namespace.velero]
 }
