@@ -1,11 +1,11 @@
 terraform {
   required_providers {
     kubernetes = {
-      source  = "registry.opentofu.org/hashicorp/kubernetes"
+      source  = "hashicorp/kubernetes"
       version = "2.23.0"
     }
     helm = {
-      source  = "registry.opentofu.org/hashicorp/helm"
+      source  = "hashicorp/helm"
       version = "2.11.0"
     }
   }
@@ -13,12 +13,12 @@ terraform {
 
 provider "kubernetes" {
   config_path    = "~/.kube/config"
-  config_context = "docker-desktop"
+  config_context = "docker-desktop"  # ← Указываем конкретный контекст
 }
 
 provider "helm" {
   kubernetes {
     config_path    = "~/.kube/config"
-    config_context = "docker-desktop"
+    config_context = "docker-desktop"  # ← И здесь тоже
   }
 }
