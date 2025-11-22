@@ -12,11 +12,13 @@ spec:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
-      version: 14.1.4
+      version: ">=17.0.21"
   interval: 1m0s
   timeout: 20m
   targetNamespace: minio
   values:
+    image:
+      repository: bitnamilegacy/minio
     auth:
       existingSecret: minio
     defaultBuckets: "kubeflex"
