@@ -14,7 +14,7 @@ spec:
     http:
       paths:
       - path: /flux(/|$)(.*)
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend:
           service:
             name: capacitor
