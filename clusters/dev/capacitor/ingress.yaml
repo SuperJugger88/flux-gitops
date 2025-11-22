@@ -4,13 +4,15 @@ metadata:
   name: capacitor
   namespace: flux-system
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: "nginx"
   rules:
   - host: capacitor.localhost
     http:
       paths:
-      - path: /
+      - path: /fluxcd/console(/|$)(.*)
         pathType: Prefix
         backend:
           service:
