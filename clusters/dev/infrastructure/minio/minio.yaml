@@ -24,8 +24,7 @@ spec:
       ingressClassName: nginx
       path: /
     replicas: 2
-    auth:
-      existingSecret: minio
+    existingSecret: minio
     defaultBuckets: "kubeflex"
     resources:
       limits:
