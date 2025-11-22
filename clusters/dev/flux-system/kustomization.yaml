@@ -6,4 +6,3 @@ resources:
   - helm-repositories/minio.yaml
   - helm-repositories/sealed-secrets.yaml
   - helm-repositories/tofu-controller.yaml
-  - helm-repositories/weave-gitops.yaml
