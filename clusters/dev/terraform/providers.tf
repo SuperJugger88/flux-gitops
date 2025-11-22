@@ -1,29 +1,27 @@
 terraform {
   required_providers {
     kubernetes = {
-      source  = "hashicorp/kubernetes"
+      source  = "registry.opentofu.org/hashicorp/kubernetes"
       version = "2.23.0"
     }
     helm = {
-      source  = "hashicorp/helm"
+      source  = "registry.opentofu.org/hashicorp/helm"
       version = "2.11.0"
     }
   }
 }
 
+# Правильная in-cluster конфигурация для Kubernetes
 provider "kubernetes" {
-  config_path = "/var/run/secrets/kubernetes.io/serviceaccount/token"
-
-  host                   = "https://kubernetes.default.svc.cluster.local:443"
+  host                   = "https://kubernetes.default.svc:443"
   token                  = file("/var/run/secrets/kubernetes.io/serviceaccount/token")
   cluster_ca_certificate = file("/var/run/secrets/kubernetes.io/serviceaccount/ca.crt")
 }
 
+# Правильная in-cluster конфигурация для Helm
 provider "helm" {
   kubernetes {
-    config_path = "/var/run/secrets/kubernetes.io/serviceaccount/token"
-
-    host                   = "https://kubernetes.default.svc.cluster.local:443"
+    host                   = "https://kubernetes.default.svc:443"
     token                  = file("/var/run/secrets/kubernetes.io/serviceaccount/token")
     cluster_ca_certificate = file("/var/run/secrets/kubernetes.io/serviceaccount/ca.crt")
   }
