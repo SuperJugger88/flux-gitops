@@ -18,7 +18,7 @@ spec:
   targetNamespace: minio
   values:
     global:
-      imageRegistry: "bitnamilegacy/minio"
+      imageRegistry: "docker.io/bitnamilegacy/minio:2024.3.30-debian-12-r0"
     auth:
       existingSecret: minio
     defaultBuckets: "kubeflex"
