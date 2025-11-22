@@ -16,5 +16,3 @@ spec:
       value: "http://minio.minio.svc.cluster.local:9000"
     - name: velero_bucket_name
       value: "velero-backups"
-  secretRef:
-    name: velero-terraform-creds
