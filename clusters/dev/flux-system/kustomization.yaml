@@ -3,3 +3,7 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
+- helm-repositories/bitnami.yaml
+- helm-repositories/sealed-secrets.yaml
+- helm-repositories/tofu-controller.yaml
+- helm-repositories/weave-gitops.yaml
