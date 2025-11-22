@@ -4,13 +4,13 @@ metadata:
   name: capacitor
   namespace: flux-system
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: localhost
+  - host: capacitor.localhost
     http:
       paths:
-      - path: /fluxcd/console(/|$)(.*)
+      - path: /
         pathType: Prefix
         backend:
           service:
