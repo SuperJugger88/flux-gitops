@@ -14,9 +14,7 @@ terraform {
 provider "kubernetes" {
   config_path    = "~/.kube/config"
   config_context = "docker-desktop"
-
-  # Явно укажем хост для Docker Desktop
-  host = "https://kubernetes.docker.internal:6443"
+  host = "https://localhost:6443"
 
 }
 
@@ -24,6 +22,6 @@ provider "helm" {
   kubernetes {
     config_path    = "~/.kube/config"
     config_context = "docker-desktop"
-    host           = "https://kubernetes.docker.internal:6443"
+    host           = "https://localhost:6443"
   }
 }
