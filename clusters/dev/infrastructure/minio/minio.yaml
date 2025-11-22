@@ -17,6 +17,12 @@ spec:
   timeout: 20m
   targetNamespace: minio
   values:
+    ingress:
+      enabled: true
+      hosts:
+        - minio.localhost
+      ingressClassName: nginx
+      path: /
     replicas: 2
     auth:
       existingSecret: minio

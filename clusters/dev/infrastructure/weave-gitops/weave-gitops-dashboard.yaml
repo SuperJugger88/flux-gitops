@@ -15,6 +15,11 @@ spec:
         name: ww-gitops
   interval: 1h0m0s
   values:
+    ingress:
+      className: "nginx"
+      enabled: false
+      hosts:
+        - weave.localhost
     adminUser:
       create: true
       passwordHash: $2a$10$/qu2o0vwoYPzZul0gT.JeuulJNwho6htp3WQGDfUkfGa2iN.K/MPO
