@@ -13,7 +13,7 @@ spec:
   - host: localhost
     http:
       paths:
-      - path: /fluxcd/console(/|$)(.*)
+      - path: /flux(/|$)(.*)
         pathType: ImplementationSpecific
         backend:
           service:
