@@ -16,10 +16,12 @@ spec:
   interval: 1h0m0s
   values:
     ingress:
-      className: "nginx"
       enabled: true
+      className: "nginx"
       hosts:
-        - weave.localhost
+        - host: "weave.localhost"
+          path: /
+          pathType: Prefix
     adminUser:
       create: true
       passwordHash: $2a$10$/qu2o0vwoYPzZul0gT.JeuulJNwho6htp3WQGDfUkfGa2iN.K/MPO
