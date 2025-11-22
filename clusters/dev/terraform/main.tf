@@ -30,7 +30,7 @@ resource "helm_release" "velero" {
 
   set {
     name  = "configuration.backupStorageLocation.config.region"
-    value = "us-east-1"
+    value = "ru-central-1"
   }
 
   set {
