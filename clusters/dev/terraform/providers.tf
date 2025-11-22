@@ -1,11 +1,11 @@
 terraform {
   required_providers {
     kubernetes = {
-      source  = "opentofu/kubernetes"
+      source  = "registry.opentofu.org/hashicorp/kubernetes"
       version = "2.23.0"
     }
     helm = {
-      source  = "opentofu/helm"
+      source  = "registry.opentofu.org/hashicorp/helm"
       version = "2.11.0"
     }
   }
