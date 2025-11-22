@@ -10,15 +10,13 @@ spec:
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: minio
         namespace: flux-system
-      version: ">=17.0.21"
+      version: ">=8.0.10"
   interval: 1m0s
   timeout: 20m
   targetNamespace: minio
   values:
-    global:
-      imageRegistry: "docker.io/bitnamilegacy/minio:2024.3.30-debian-12-r0"
     auth:
       existingSecret: minio
     defaultBuckets: "kubeflex"
@@ -28,5 +26,5 @@ spec:
         cpu: 10m
         memory: 40Mi
     serviceAccount:
-      create: false
+      create: true
       name: "minio"
