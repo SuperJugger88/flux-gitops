@@ -17,8 +17,8 @@ spec:
   timeout: 20m
   targetNamespace: minio
   values:
-    image:
-      repository: bitnamilegacy/minio
+    global:
+      imageRegistry: "bitnamilegacy/minio"
     auth:
       existingSecret: minio
     defaultBuckets: "kubeflex"
