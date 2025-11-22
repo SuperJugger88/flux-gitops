@@ -8,26 +8,23 @@ terraform {
       source  = "hashicorp/helm"
       version = "2.11.0"
     }
-    kubectl = {
-      source  = "gavinbunney/kubectl"
-      version = "1.14.0"
-    }
   }
 }
 
 provider "kubernetes" {
-  config_path    = "~/.kube/config"
-  config_context = "docker-desktop"
+  config_path = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+
+  host                   = "https://kubernetes.default.svc.cluster.local:443"
+  token                  = file("/var/run/secrets/kubernetes.io/serviceaccount/token")
+  cluster_ca_certificate = file("/var/run/secrets/kubernetes.io/serviceaccount/ca.crt")
 }
 
 provider "helm" {
   kubernetes {
-    config_path    = "~/.kube/config"
-    config_context = "docker-desktop"
-  }
-}
+    config_path = "/var/run/secrets/kubernetes.io/serviceaccount/token"
 
-provider "kubectl" {
-  config_path    = "~/.kube/config"
-  config_context = "docker-desktop"
+    host                   = "https://kubernetes.default.svc.cluster.local:443"
+    token                  = file("/var/run/secrets/kubernetes.io/serviceaccount/token")
+    cluster_ca_certificate = file("/var/run/secrets/kubernetes.io/serviceaccount/ca.crt")
+  }
 }
