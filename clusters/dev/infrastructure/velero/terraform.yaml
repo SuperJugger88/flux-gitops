@@ -7,7 +7,7 @@ metadata:
 spec:
   interval: 10m
   approvePlan: auto
-  path: ./infrastructure/velero
+  path: ./terraform
   sourceRef:
     kind: GitRepository
     name: flux-system
