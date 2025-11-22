@@ -17,7 +17,7 @@ spec:
   values:
     ingress:
       className: "nginx"
-      enabled: false
+      enabled: true
       hosts:
         - weave.localhost
     adminUser:
