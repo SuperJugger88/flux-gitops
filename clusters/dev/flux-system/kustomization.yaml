@@ -6,3 +6,4 @@ resources:
   - helm-repositories/minio.yaml
   - helm-repositories/sealed-secrets.yaml
   - helm-repositories/tofu-controller.yaml
+  - oci-repositories/capacitor.yaml
