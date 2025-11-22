@@ -2,18 +2,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: capacitor
+  name: ww-gitops
   namespace: flux-system
 spec:
   ingressClassName: nginx
   rules:
-  - host: capacitor.localhost
+  - host: weave.localhost
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: capacitor
+            name: ww-gitops-weave-gitops
             port:
-              number: 9000
+              number: 9001
