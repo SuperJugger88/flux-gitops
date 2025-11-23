@@ -49,10 +49,10 @@ spec:
                 defaultMode: 0644
         volumeMounts:
           - name: terraform-config
-            mountPath: /home/ubuntu/.terraformrc
+            mountPath: /home/controller/.terraformrc
             subPath: .terraformrc
           - name: terraform-config
-            mountPath: /home/ubuntu/.tofurc
+            mountPath: /home/controller/.tofurc
             subPath: .tofurc
     volumes:
       - name: terraform-config
@@ -61,8 +61,8 @@ spec:
           defaultMode: 0644
     volumeMounts:
       - name: terraform-config
-        mountPath: /home/ubuntu/.terraformrc
+        mountPath: /home/controller/.terraformrc
         subPath: .terraformrc
       - name: terraform-config
-        mountPath: /home/ubuntu/.tofurc
+        mountPath: /home/controller/.tofurc
         subPath: .tofurc
