@@ -7,12 +7,12 @@ data:
   .terraformrc: |
     provider_installation {
       network_mirror {
-        url = "https://terraform-registry-mirror.ru/"
+        url = "http://tf-mirror.tf-mirror-terraform-registry-mirror.svc.cluster.local:80"
       }
     }
   .tofurc: |
     provider_installation {
       network_mirror {
-        url = "https://terraform-registry-mirror.ru/"
+        url = "http://tf-mirror.tf-mirror-terraform-registry-mirror.svc.cluster.local:80"
       }
     }

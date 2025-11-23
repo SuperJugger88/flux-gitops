@@ -41,28 +41,16 @@ spec:
         tag: v0.16.0-rc.5
       grpc:
         maxMessageSize: 30
-        creationTimeout: 15m
-        volumes:
-            - name: terraform-config
-              configMap:
-                name: terraform-mirror-config
-                defaultMode: 0644
-        volumeMounts:
+      creationTimeout: 15m
+      volumes:
           - name: terraform-config
-            mountPath: /home/controller/.terraformrc
-            subPath: .terraformrc
-          - name: terraform-config
-            mountPath: /home/controller/.tofurc
-            subPath: .tofurc
-    volumes:
-      - name: terraform-config
-        configMap:
-          name: terraform-mirror-config
-          defaultMode: 0644
-    volumeMounts:
-      - name: terraform-config
-        mountPath: /home/controller/.terraformrc
-        subPath: .terraformrc
-      - name: terraform-config
-        mountPath: /home/controller/.tofurc
-        subPath: .tofurc
+            configMap:
+              name: terraform-mirror-config
+              defaultMode: 0644
+      volumeMounts:
+        - name: terraform-config
+          mountPath: /home/runner/.terraformrc
+          subPath: .terraformrc
+        - name: terraform-config
+          mountPath: /home/runner/.tofurc
+          subPath: .tofurc
