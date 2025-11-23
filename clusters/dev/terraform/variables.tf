@@ -1,7 +1,7 @@
 variable "minio_endpoint" {
   description = "MinIO endpoint URL"
   type        = string
-  default     = "http://minio.minio-minio.svc.cluster.local:9000"
+  default     = "http://minio.minio.svc.cluster.local:9000"
 }
 
 variable "velero_bucket_name" {
