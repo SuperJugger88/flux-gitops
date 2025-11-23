@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: terraform-mirror-config
+  namespace: flux-system
+data:
+  .terraformrc: |
+    provider_installation {
+      network_mirror {
+        url = "http://tf-mirror.tf-mirror.svc.cluster.local:80"
+      }
+    }
+  .tofurc: |
+    provider_installation {
+      network_mirror {
+        url = "http://tf-mirror.tf-mirror.svc.cluster.local:80"
+      }
+    }
