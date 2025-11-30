@@ -1,8 +1,5 @@
 terraform {
   required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
     kubernetes = {
       source  = "hashicorp/kubernetes"
       version = "2.23.0"
@@ -40,8 +37,4 @@ provider "helm" {
     cluster_ca_certificate = file("/var/run/secrets/kubernetes.io/serviceaccount/ca.crt")
   }
   debug = true
-}
-
-provider "yandex" {
-  zone = "ru-central-1"
 }
