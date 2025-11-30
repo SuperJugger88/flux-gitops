@@ -42,15 +42,3 @@ spec:
       grpc:
         maxMessageSize: 30
       creationTimeout: 15m
-    volumes:
-      - name: terraform-config
-        configMap:
-          name: terraform-mirror-config
-          defaultMode: 0644
-    volumeMounts:
-      - name: terraform-config
-        mountPath: /home/controller/.terraformrc
-        subPath: .terraformrc
-      - name: terraform-config
-        mountPath: /home/controller/.tofurc
-        subPath: .tofurc

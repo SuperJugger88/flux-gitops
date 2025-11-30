@@ -12,6 +12,7 @@ terraform {
       version = "2.11.0"
     }
   }
+  required_version = ">= 0.13"
   backend "kubernetes" {
     secret_suffix = "velero-state"
     namespace     = "flux-system"
