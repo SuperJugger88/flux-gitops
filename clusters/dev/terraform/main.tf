@@ -15,10 +15,10 @@ resource "helm_release" "velero" {
     value = "false"
   }
 
-  set {
-    name  = "configuration.backupStorageLocations[0].name"
-    value = "default"
-  }
+  # set {
+  #   name  = "configuration.backupStorageLocations[0].name"
+  #   value = "default"
+  # }
 
   set {
     name  = "configuration.backupStorageLocations[0].provider"
