@@ -7,12 +7,20 @@ data:
   .terraformrc: |
     provider_installation {
       network_mirror {
-        url = "http://tf-mirror.tf-mirror-terraform-registry-mirror.svc.cluster.local:80"
+        url = "https://terraform-mirror.yandexcloud.net/"
+        include = ["registry.terraform.io/*/*"]
+      }
+      direct {
+        exclude = ["registry.terraform.io/*/*"]
       }
     }
   .tofurc: |
     provider_installation {
       network_mirror {
-        url = "http://tf-mirror.tf-mirror-terraform-registry-mirror.svc.cluster.local:80"
+        url = "https://terraform-mirror.yandexcloud.net/"
+        include = ["registry.terraform.io/*/*"]
+      }
+      direct {
+        exclude = ["registry.terraform.io/*/*"]
       }
     }
