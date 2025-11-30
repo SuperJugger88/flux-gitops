@@ -34,11 +34,11 @@ spec:
         memory: 64Mi
     caCertValidityDuration: 24h
     certRotationCheckFrequency: 30m
-#    image:
-#      tag: v0.16.0-rc.5
+    image:
+      tag: v0.16.0-rc.6
     runner:
-#      image:
-#        tag: v0.16.0-rc.5
+      image:
+        tag: v0.16.0-rc.6
       grpc:
         maxMessageSize: 30
       creationTimeout: 15m
