@@ -12,6 +12,6 @@ spec:
         kind: HelmRepository
         name: ingress-nginx
         namespace: flux-system
-  interval: 15m
+  interval: 1m
   timeout: 5m
   releaseName: nginx-ingress-controller
