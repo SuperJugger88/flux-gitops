@@ -13,7 +13,7 @@ spec:
         name: minio
         namespace: flux-system
       version: ">=5.4.0"
-  interval: 1m0s
+  interval: 10m
   timeout: 20m
   targetNamespace: minio
   values:
