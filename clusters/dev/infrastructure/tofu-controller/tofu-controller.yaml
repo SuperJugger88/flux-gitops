@@ -49,8 +49,8 @@ spec:
               defaultMode: 0644
       volumeMounts:
         - name: terraform-config
-          mountPath: /home/runner/.terraformrc
+          mountPath: /home/controller/.terraformrc
           subPath: .terraformrc
         - name: terraform-config
-          mountPath: /home/runner/.tofurc
+          mountPath: /home/controller/.tofurc
           subPath: .tofurc
