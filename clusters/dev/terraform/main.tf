@@ -6,6 +6,11 @@ resource "helm_release" "velero" {
   namespace  = "velero"
 
   set {
+    name = "kubectl.image.tag"
+    value = "1.33.4"
+  }
+
+  set {
     name  = "configuration.backupStorageLocations[0].name"
     value = "default"
   }
