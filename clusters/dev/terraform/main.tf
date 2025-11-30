@@ -11,6 +11,11 @@ resource "helm_release" "velero" {
   }
 
   set {
+    name  = "snapshotsEnabled"
+    value = "false"
+  }
+
+  set {
     name  = "configuration.backupStorageLocations[0].name"
     value = "default"
   }
