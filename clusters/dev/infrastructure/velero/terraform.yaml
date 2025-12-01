@@ -7,7 +7,6 @@ metadata:
 spec:
   dependsOn:
     - name: tofu-controller
-  wait: true
   interval: 10m
   approvePlan: auto
   path: ./clusters/dev/terraform
