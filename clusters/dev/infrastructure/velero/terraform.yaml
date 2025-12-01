@@ -5,8 +5,6 @@ metadata:
   name: velero
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: tofu-controller
   interval: 10m
   approvePlan: auto
   path: ./clusters/dev/terraform
