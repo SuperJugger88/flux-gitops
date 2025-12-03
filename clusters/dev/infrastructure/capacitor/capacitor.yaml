@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: capacitor
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: capacitor-next
+      version: "2025-12.1-rc2"
+      sourceRef:
+        kind: HelmRepository
+        name: capacitor
+        namespace: flux-system
+  interval: 10m
+  timeout: 5m
+  releaseName: capacitor
