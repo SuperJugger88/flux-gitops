@@ -15,7 +15,7 @@ spec:
         kind: HelmRepository
         name: argo-helm-repo
   values:
-    global:
+    server:
       ingress:
         enabled: true
         hostname: argocd.localhost
@@ -23,6 +23,7 @@ spec:
         pathType: Prefix
         paths:
           - /
+    global:
       image:
         repository: ghcr.io/flux-subsystem-argo/fsa/argocd
         tag: v2.10.2-fl.23-main-d2c9a8cb
