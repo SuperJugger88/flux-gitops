@@ -16,6 +16,13 @@ spec:
         name: argo-helm-repo
   values:
     global:
+      ingress:
+        enabled: true
+        hostname: argocd.localhost
+        ingressClassName: nginx
+        pathType: Prefix
+        paths:
+          - /
       image:
         repository: ghcr.io/flux-subsystem-argo/fsa/argocd
         tag: v2.10.2-fl.23-main-d2c9a8cb
