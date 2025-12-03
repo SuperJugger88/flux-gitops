@@ -15,6 +15,14 @@ spec:
         name: ww-gitops
   interval: 10m
   values:
+    ingress:
+      enabled: true
+      className: "nginx"
+      hosts:
+       - host: weave.localhost
+         paths:
+           - path: /
+             pathType: ImplementationSpecific
     adminUser:
       create: true
       passwordHash: $2a$10$DY7sxB/bC5uv7zeTbm.5OOiDwC9Jdl0NvAz01MVHENABzOi.5YXaG
