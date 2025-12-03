@@ -26,4 +26,4 @@ spec:
     global:
       image:
         repository: ghcr.io/flux-subsystem-argo/fsa/argocd
-        tag: v2.10.2-fl.23-main-d2c9a8cb
+        tag: v2.10.5-fl.23-main-5958964b
