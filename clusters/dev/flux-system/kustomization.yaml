@@ -7,4 +7,4 @@ resources:
   - helm-repositories/sealed-secrets.yaml
   - helm-repositories/tofu-controller.yaml
   - helm-repositories/ingress-nginx.yaml
-  - oci-repositories/capacitor.yaml
+  - helm-repositories/capacitor.yaml
