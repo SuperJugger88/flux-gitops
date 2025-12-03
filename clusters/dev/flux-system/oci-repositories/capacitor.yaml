@@ -7,4 +7,4 @@ spec:
   interval: 1h
   url: oci://ghcr.io/gimlet-io/charts/capacitor-next
   ref:
-    semver: "2025-10.2-rc6-6-gca41535"
+    semver: ">=0.1.0"
