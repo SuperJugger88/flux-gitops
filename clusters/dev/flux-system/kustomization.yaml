@@ -7,4 +7,5 @@ resources:
   - helm-repositories/sealed-secrets.yaml
   - helm-repositories/tofu-controller.yaml
   - helm-repositories/ingress-nginx.yaml
+  - helm-repositories/weave-gitops-dashboard.yaml
   - oci-repositories/capacitor.yaml
