@@ -4,7 +4,7 @@ metadata:
   name: tofu-controller
   namespace: flux-system
   annotations:
-    metadata.weave.works/flamingo-tofu-controller: "https://localhost:8080/applications/argocd/tofu-controller?view=tree"
+    metadata.weave.works/flamingo-tofu-controller: "https://localhost:8080/applications/tofu-controller?view=tree"
 spec:
   chart:
     spec:
