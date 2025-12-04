@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 1h0s
   url: oci://ghcr.io/gimlet-io/charts/capacitor-next
-  ref:
-    semver: "1.x"
+#  ref:
+#    semver: "1.x"
