@@ -10,7 +10,8 @@ spec:
       sourceRef:
         kind: OCIRepository
         name: capacitor
-      version: ">=2025-12.1-rc3"
+        namespace: flux-system
+      version: ">=2025-11.2"
   interval: 10m
   timeout: 5m
   releaseName: capacitor-next
