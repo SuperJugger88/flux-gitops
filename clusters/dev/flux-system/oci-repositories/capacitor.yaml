@@ -1,0 +1,21 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: capacitor
+  namespace: flux-system
+spec:
+  targetNamespace: flux-system
+  interval: 10m
+  retryInterval: 2m
+  timeout: 5m
+  wait: true
+  prune: true
+  path: "./"
+  sourceRef:
+    kind: OCIRepository
+    name: capacitor
+  values:
+    licenseKey: "123456789"
+    session:
+      hashKey: "base64:34hbyZW/1LRrwzRr2Q/nV8rOIEJLyzawtdI0fEcjVxw="
+      blockKey: "a9bPtla39l8hy0wYqo1vrWbsg0ENgNZArU7rqqMFyVU="
