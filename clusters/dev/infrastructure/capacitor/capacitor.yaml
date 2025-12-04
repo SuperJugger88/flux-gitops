@@ -1,16 +1,29 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
 metadata:
   name: capacitor
   namespace: flux-system
 spec:
-  targetNamespace: flux-system
+  chart:
+    spec:
+      chart: capacitor-next
+      sourceRef:
+        kind: HelmRepository
+        name: capacitor
+      version: ">=2025-12.1-rc3"
   interval: 10m
-  retryInterval: 2m
   timeout: 5m
-  wait: true
-  prune: true
-  path: "./"
-  sourceRef:
-    kind: OCIRepository
-    name: capacitor
+  releaseName: capacitor
+  targetNamespace: flux-system
+  values:
+    auth:
+      static:
+        users: "admin:$2y$05$llpwxegbEsye5EOwijQml.YqKWu/l2ig1w0qY43f.PQKJk/Cvy1oC"
+    ingress:
+      enabled: true
+      className: "nginx"
+      hosts:
+        - host: capacitor.localhost
+          paths:
+            - path: /
+              pathType: Prefix
