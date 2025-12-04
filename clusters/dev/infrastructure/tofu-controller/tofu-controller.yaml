@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: tofu-controller
-  namespace: flux-system
+  namespace: tofu-controller
 spec:
   chart:
     spec:
@@ -13,7 +13,7 @@ spec:
       version: '>=0.16.0-rc.6'
   interval: 10m
   releaseName: tofu-controller
-  targetNamespace: flux-system
+  targetNamespace: tofu-controller
   install:
     crds: Create
     remediation:
