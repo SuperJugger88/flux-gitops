@@ -16,6 +16,10 @@ spec:
   releaseName: capacitor
   targetNamespace: flux-system
   values:
+    licenseKey: "123456789"
+    session:
+      hashKey: "base64:34hbyZW/1LRrwzRr2Q/nV8rOIEJLyzawtdI0fEcjVxw="
+      blockKey: "a9bPtla39l8hy0wYqo1vrWbsg0ENgNZArU7rqqMFyVU="
     auth:
       static:
         users: "admin:$2y$05$llpwxegbEsye5EOwijQml.YqKWu/l2ig1w0qY43f.PQKJk/Cvy1oC"
