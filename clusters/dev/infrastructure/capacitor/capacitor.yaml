@@ -5,7 +5,7 @@ metadata:
   namespace: capacitor-next
 spec:
   targetNamespace: capacitor-next
-  interval: 1h
+  interval: 10m
   retryInterval: 2m
   timeout: 5m
   wait: true
