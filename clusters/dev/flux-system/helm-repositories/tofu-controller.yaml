@@ -5,4 +5,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h0s
-  url: https://flux-iac.github.io
+  url: https://flux-iac.github.io/tofu-controller
