@@ -7,4 +7,4 @@ resources:
   - helm-repositories/tofu-controller.yaml
   - helm-repositories/minio.yaml
   - helm-repositories/ingress-nginx.yaml
-  # - terraform/velero.yaml
+   - terraform/velero.yaml
