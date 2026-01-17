@@ -6,7 +6,7 @@ resource "helm_release" "velero" {
   namespace  = "velero"
 
   set {
-    name = "kubectl.image.tag"
+    name  = "kubectl.image.tag"
     value = "1.33.4"
   }
 
