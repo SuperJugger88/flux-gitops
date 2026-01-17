@@ -1,9 +1,0 @@
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: capacitor-next
-  namespace: flux-system
-spec:
-  interval: 1h0s
-  url: oci://ghcr.io/gimlet-io/charts/capacitor-next
-  type: oci
